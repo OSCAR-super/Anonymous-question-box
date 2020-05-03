@@ -1,0 +1,14 @@
+body{
+    background-image: url(../img/c.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
+}
+
+p{
+    margin-left: 42%;
+    margin-top: 28%;
+    font-size: 20px;
+}
+

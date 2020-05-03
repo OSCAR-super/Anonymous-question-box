@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyt.mapper.UserMapper">
+    <select id="findUserById" resultType="com.lyt.pojo.User">
+        SELECT * from user where UserId=#{UserId}
+    </select>
+    <select id="findAllUser" resultType="com.lyt.pojo.User">
+        SELECT * from user where 1=1
+    </select>
+    <insert id="AddUser">
+        INSERT INTO user(UserId,UserName,UserLoginName,UserPassword,UserFace,UserJ,UserEmail,G,F,K)
+        values(null ,#{UserName},#{UserLoginName},#{UserPassword1},"123","no",#{UserEmail},"no","no","no")
+
+    </insert>
+    <insert id="addJubao">
+        INSERT INTO Jubao(JubaoId,JubaoName,JubaoN,JD,JID)
+        values(null ,#{UserName},#{UserN},"no",#{JID})
+
+    </insert>
+    <select id="GetEmail">
+        SELECT UserEmail from user where UserId=#{UserId}
+    </select>
+    <select id="findUserP" resultType="com.lyt.pojo.PinLuen">
+        SELECT * from pinluen where UserB=#{UserId}
+    </select>
+    <update id="ji">
+         UPDATE user SET UserJ = "yes" WHERE UserId = #{UserId}
+     </update>
+    <update id="k">
+         UPDATE user SET K = "yes" WHERE UserLoginName = #{UserName}
+     </update>
+    <update id="dk">
+         UPDATE user SET K = "no" WHERE UserLoginName = #{UserName}
+     </update>
+    <update id="xiuUser">
+         UPDATE user SET UserName=#{UserName} WHERE UserId = #{UserId}
+     </update>
+    <update id="xiuUserL">
+         UPDATE user SET UserLoginName=#{UserL} WHERE UserId = #{UserId}
+     </update>
+    <update id="xiuUserE">
+         UPDATE user SET UserEmail=#{UserE} WHERE UserId = #{UserId}
+     </update>
+    <update id="xiuUserP">
+         UPDATE user SET UserPassword=#{UserP1} WHERE UserId = #{UserId} and UserPassword=#{UserP}
+     </update>
+    <select id="findUserByNameAndPwd" resultType="com.lyt.pojo.User">
+        SELECT * FROM user WHERE UserLoginName=#{UserLoginName} AND UserPassword=#{UserPassword}
+    </select>
+    <update id="UserFace">
+         UPDATE user SET UserFace = #{UserFace} WHERE UserId = #{UserId}
+     </update>
+    <select id="getUserId" resultType="Integer">
+        SELECT UserId from user where UserName=#{UserName}
+    </select>
+    <select id="findUserByEmailAndPwd" resultType="com.lyt.pojo.User">
+        SELECT * FROM user WHERE UserEmail=#{UserLoginName} AND UserPassword=#{UserPassword}
+    </select>
+    <select id="findEmail" resultType="com.lyt.pojo.User">
+        SELECT * FROM user WHERE UserEmail=#{UserEmail}
+    </select>
+    <select id="fj" resultType="com.lyt.pojo.Jubao">
+        SELECT * from Jubao
+    </select>
+    <select id="findUserByName" resultType="com.lyt.pojo.User">
+        SELECT * from user where UserName=#{UserName}
+    </select>
+    <select id="findUserByEmail" resultType="com.lyt.pojo.User">
+        SELECT * from user where UserEmail=#{UserEmail}
+    </select>
+    <update id="df">
+         UPDATE Jubao SET JD = "yes" WHERE JubaoId = #{jid}
+     </update>
+    <update id="f">
+         UPDATE user SET F = "yes" WHERE UserId=#{UserName}
+     </update>
+    <update id="ff">
+         UPDATE user SET F = "no" WHERE UserId=#{UserName}
+     </update>
+</mapper>

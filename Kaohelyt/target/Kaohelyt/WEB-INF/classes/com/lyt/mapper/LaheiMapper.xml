@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyt.mapper.LaheiMapper">
+    <insert id="lahei">
+        INSERT INTO Lahei(LaheiR,LaheiB,LaheiN)
+        values(#{LaheiP},#{LaheiB},#{LaheiN})
+
+    </insert>
+    <delete id="qlahei">
+          delete from Lahei where  LaheiR=#{LaheiP} and  LaheiN=#{LaheiN}
+      </delete>
+    <select id="findLahei" resultType="com.lyt.pojo.Lahei">
+        SELECT * from Lahei where LaheiR=#{UserId}
+    </select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lyt.mapper.PinLuenMapper">
+
+<select id="findAllPinLuen" resultType="com.lyt.pojo.PinLuen">
+        SELECT * from pinluen where 1=1
+    </select>
+
+<select id="findPinLuenByUserId" resultType="com.lyt.pojo.PinLuen">
+        SELECT * from pinluen where UserB=#{UserId}
+    </select>
+<insert id="addPinLuenByBAndP">
+        INSERT INTO pinluen(IdP,UserB,neiron,de,UserP)
+        values(null ,#{UserB},#{neiron},"no",#{UserIdP})
+    </insert>
+    <insert id="addH">
+        INSERT INTO Hueifu(HueifuId,HP,HN,HR,HC)
+        values(null ,#{IdP},#{HN},#{UserId},"no")
+    </insert>
+    <select id="findH" resultType="com.lyt.pojo.Hueifu">
+        SELECT * from Hueifu where HP=#{IdP}
+    </select>
+    <select id="findPinLuenById" resultType="com.lyt.pojo.PinLuen">
+        SELECT * from pinluen where IdP=#{IdP}
+    </select>
+    <update id="dP">
+         UPDATE pinluen SET de = "yes" WHERE IdP=#{IdP}
+     </update>
+    <update id="set">
+         UPDATE Hueifu SET HC = "yes" WHERE HP=#{IdP}
+     </update>
+
+<select id="findHR" resultType="com.lyt.pojo.Hueifu">
+        SELECT * from Hueifu where HR=#{IdP}
+    </select>
+    <select id="findPR" resultType="com.lyt.pojo.Hueifu">
+        SELECT * from pinluen where UserP=#{IdP}
+    </select>
+</mapper>
