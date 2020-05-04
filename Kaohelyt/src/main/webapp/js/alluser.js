@@ -3,6 +3,10 @@ $(".upload1").change(function () {
     readFile(file);
 });
 function readFile(file) {
+     if(file.size>1024*500){
+        alert("图片大小不能大于500k！");
+        return false;
+    }
     // 新建阅读器
     var reader = new FileReader();
     // 根据文件类型选择阅读方式
