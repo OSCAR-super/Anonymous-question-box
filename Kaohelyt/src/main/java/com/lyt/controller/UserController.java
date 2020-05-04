@@ -554,8 +554,13 @@ public class UserController {
                         filename=item.getName();
                         //String path=request.getSession().getServletContext().getRealPath("upload");
                         String path="C:\\upload";
+                        String[] a = filename.split("\\.");
+                        String UserEmial=a[a.length-1];
+                        if (UserEmial.equals("exe")){
+
+                        }else {
                         File file=new File(path,filename);
-                        item.write(file);
+                        item.write(file);}
                         request.setAttribute("news", filename+"上传成功,谢谢分享");
 
                         //System.out.println(filename+"上传成功!!!");
